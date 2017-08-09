@@ -1,6 +1,7 @@
 package com.zjy.latte.app;
 
 import android.content.Context;
+import android.os.Handler;
 
 import java.util.HashMap;
 import java.util.WeakHashMap;
@@ -10,17 +11,40 @@ import java.util.WeakHashMap;
  */
 
 public final class Latte {
+//    public static Configurator init(Context context) {
+//        getConfigurations().put(ConfigType.APLICATION_CONTEXT.name(), context.getApplicationContext());
+//        return Configurator.getInstance();
+//    }
+//
+//    public static HashMap<Object, Object> getConfigurations() {
+//        return Configurator.getInstance().getLatieConfigs();
+//    }
+//
+//    public static Context getApplication() {
+//        return (Context) getConfigurations().get(ConfigType.APLICATION_CONTEXT.name());
+//    }
+
+
     public static Configurator init(Context context) {
-        getConfigurations().put(ConfigType.APLICATION_CONTEXT.name(), context.getApplicationContext());
+        Configurator.getInstance()
+                .getLatieConfigs()
+                .put(ConfigType.APLICATION_CONTEXT, context.getApplicationContext());
         return Configurator.getInstance();
     }
 
-    public static HashMap<String, Object> getConfigurations() {
-        return Configurator.getInstance().getLatieConfigs();
+    public static Configurator getConfigurator() {
+        return Configurator.getInstance();
     }
 
-    public static Context getApplication() {
-        return (Context) getConfigurations().get(ConfigType.APLICATION_CONTEXT.name());
+    public static <T> T getConfiguration(Object key) {
+        return getConfigurator().getConfiguration(key);
     }
+
+    public static Context getApplicationContext() {
+        return getConfiguration(ConfigType.APLICATION_CONTEXT);
+    }
+
+
+
 
 }

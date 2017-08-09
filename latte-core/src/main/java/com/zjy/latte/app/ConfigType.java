@@ -8,5 +8,6 @@ public enum ConfigType {
     API_HOST,
     APLICATION_CONTEXT,
     CONFIG_READY,
-    ICON
+    ICON,
+    INTERCEPTOR
 }

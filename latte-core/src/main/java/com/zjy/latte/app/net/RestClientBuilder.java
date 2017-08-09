@@ -27,6 +27,11 @@ public class RestClientBuilder {
     private RequestBody mBody;
     private File mFile;
 
+    private String mDownLoadDir;
+    private String mExtension;
+    private String mName;
+
+
     RestClientBuilder() {
     }
 
@@ -81,12 +86,25 @@ public class RestClientBuilder {
         return this;
     }
 
+    public final RestClientBuilder downLoadDir(String downLoadDir) {
+        this.mDownLoadDir = downLoadDir;
+        return this;
+    }
+    public final RestClientBuilder extension(String extension) {
+        this.mExtension = extension;
+        return this;
+    }
+    public final RestClientBuilder name(String name) {
+        this.mName = name;
+        return this;
+    }
+
 
     public final RestClient build() {
         return new RestClient(mUrl,
                 PARAMS,
                 mIRequest,
-                mISuccess,
+                mDownLoadDir, mExtension, mName, mISuccess,
                 mIFailure,
                 mIError,
                 mBody, mFile);

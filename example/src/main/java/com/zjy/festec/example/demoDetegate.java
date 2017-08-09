@@ -42,7 +42,7 @@ public class demoDetegate extends LatteDelegate {
 
     private void testRestClient() {
         RestClient.builder()
-                .url("http://news.baidu.com/")
+                .url("http://127.0.0.1/index")
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String respone) {

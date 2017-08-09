@@ -5,6 +5,7 @@ import com.zjy.latte.app.net.callback.IFailure;
 import com.zjy.latte.app.net.callback.IRequest;
 import com.zjy.latte.app.net.callback.ISuccess;
 import com.zjy.latte.app.net.callback.RequestCallbacks;
+import com.zjy.latte.app.net.download.DownLoadHandler;
 
 import java.io.File;
 import java.util.Map;
@@ -25,6 +26,11 @@ public class RestClient {
     private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
     private final String URL;
     private final IRequest REQUEST;
+
+    private final String DOWNLOAD_DIR;
+    private final String EXTENSION;
+    private final String NAME;
+
     private final ISuccess SUCCESS;
     private final IFailure FAILURE;
     private final IError ERROR;
@@ -34,11 +40,14 @@ public class RestClient {
     public RestClient(String url,
                       Map<String, Object> params,
                       IRequest request,
-                      ISuccess success,
+                      String download_dir, String extension, String name, ISuccess success,
                       IFailure failure,
                       IError error,
                       RequestBody body, File file) {
         this.URL = url;
+        this.DOWNLOAD_DIR = download_dir;
+        this.EXTENSION = extension;
+        this.NAME = name;
         this.FILE = file;
         PARAMS.putAll(params);
         this.REQUEST = request;
@@ -124,6 +133,15 @@ public class RestClient {
 
     public final void put() {
         request(HttpMethod.PUT);
+    }
+
+    public final void upload() {
+        request(HttpMethod.UPLOAD);
+    }
+
+    public final void download() {
+        new DownLoadHandler(URL, REQUEST, DOWNLOAD_DIR, EXTENSION, NAME, SUCCESS, FAILURE, ERROR)
+                .handleDownload();
     }
 
     public final void delete() {
