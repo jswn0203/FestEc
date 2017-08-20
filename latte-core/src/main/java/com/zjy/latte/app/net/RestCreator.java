@@ -1,10 +1,8 @@
 package com.zjy.latte.app.net;
 
 
-import android.util.Log;
-
-import com.zjy.latte.app.ConfigType;
-import com.zjy.latte.app.Latte;
+import com.zjy.latte.app.app.ConfigType;
+import com.zjy.latte.app.app.Latte;
 
 import java.util.ArrayList;
 import java.util.WeakHashMap;
@@ -49,18 +47,18 @@ public class RestCreator {
     private static final class OKHttpHolder {
         private static final int TIME_OUT = 60;
         private static final OkHttpClient.Builder BUILDER = new OkHttpClient.Builder();
-        private static final ArrayList<Interceptor> INTERCEPTORS = Latte.getConfiguration(ConfigType.INTERCEPTOR);
+//        private static final ArrayList<Interceptor> INTERCEPTORS = Latte.getConfiguration(ConfigType.INTERCEPTOR);
+//
+//        private static OkHttpClient.Builder addInterceptor() {
+//            if (INTERCEPTORS != null && !INTERCEPTORS.isEmpty()) {
+//                for (Interceptor interceptor : INTERCEPTORS) {
+//                    BUILDER.addInterceptor(interceptor);
+//                }
+//            }
+//            return BUILDER;
+//        }
 
-        private static OkHttpClient.Builder addInterceptor() {
-            if (INTERCEPTORS != null && !INTERCEPTORS.isEmpty()) {
-                for (Interceptor interceptor : INTERCEPTORS) {
-                    BUILDER.addInterceptor(interceptor);
-                }
-            }
-            return BUILDER;
-        }
-
-        private static final OkHttpClient OK_HTTP_CLIENT = addInterceptor()
+        private static final OkHttpClient OK_HTTP_CLIENT = new OkHttpClient.Builder()
                 .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
                 .build();
     }

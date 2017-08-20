@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 
-import com.zjy.latte.app.Latte;
+import com.zjy.latte.app.app.Latte;
 import com.zjy.latte.app.net.callback.IRequest;
 import com.zjy.latte.app.net.callback.ISuccess;
 import com.zjy.latte.app.utils.file.FileUtil;

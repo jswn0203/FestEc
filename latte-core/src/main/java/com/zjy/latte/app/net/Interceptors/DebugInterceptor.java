@@ -6,7 +6,6 @@ import com.zjy.latte.app.utils.file.FileUtil;
 
 import java.io.IOException;
 
-import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.Protocol;
 import okhttp3.Response;
@@ -46,9 +45,9 @@ public class DebugInterceptor extends BaseInterceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         final String url = chain.request().url().toString();
-        if (url.contains(DEBUG_URL)) {
-            return debugRespone(chain, DEBUG_RAW_ID);
-        }
+//        if (url.contains(DEBUG_URL)) {
+//            return debugRespone(chain, DEBUG_RAW_ID);
+//        }
         return chain.proceed(chain.request());
     }
 }

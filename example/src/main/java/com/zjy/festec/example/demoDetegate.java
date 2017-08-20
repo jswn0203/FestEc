@@ -7,16 +7,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zjy.latte.app.ConfigType;
-import com.zjy.latte.app.Latte;
 import com.zjy.latte.app.delegate.LatteDelegate;
 import com.zjy.latte.app.net.RestClient;
-import com.zjy.latte.app.net.RestClientBuilder;
-import com.zjy.latte.app.net.RestCreator;
-import com.zjy.latte.app.net.RestService;
 import com.zjy.latte.app.net.callback.IError;
 import com.zjy.latte.app.net.callback.IFailure;
-import com.zjy.latte.app.net.callback.IRequest;
 import com.zjy.latte.app.net.callback.ISuccess;
 
 /**
