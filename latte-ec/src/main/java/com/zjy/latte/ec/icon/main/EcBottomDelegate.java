@@ -6,6 +6,7 @@ import com.zjy.latte.app.delegate.bottom.BaseBottomDelegate;
 import com.zjy.latte.app.delegate.bottom.BottomItemDelegate;
 import com.zjy.latte.app.delegate.bottom.BottomTabBean;
 import com.zjy.latte.app.delegate.bottom.ItemBuilder;
+import com.zjy.latte.ec.icon.main.diecover.DiscoverDelegate;
 import com.zjy.latte.ec.icon.main.index.IndexDelegate;
 import com.zjy.latte.ec.icon.main.sort.SortDelegate;
 
@@ -21,7 +22,7 @@ public class EcBottomDelegate extends BaseBottomDelegate {
         final LinkedHashMap<BottomTabBean, BottomItemDelegate> items = new LinkedHashMap<>();
         items.put(new BottomTabBean("{fa-home}", "主页"), new IndexDelegate());
         items.put(new BottomTabBean("{fa-sort}", "分类"), new SortDelegate());
-        items.put(new BottomTabBean("{fa-compass}", "发现"), new IndexDelegate());
+        items.put(new BottomTabBean("{fa-compass}", "发现"), new DiscoverDelegate());
         items.put(new BottomTabBean("{fa-shopping-cart}", "购物车"), new IndexDelegate());
         items.put(new BottomTabBean("{fa-user}", "我的"), new IndexDelegate());
         return builder.addItems(items).build();

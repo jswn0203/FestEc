@@ -67,7 +67,7 @@ public class IndexDelegate extends BottomItemDelegate {
         super.onLazyInitView(savedInstanceState);
         initRefreshLayout();
         initRecyclerView();
-        mRefreshHandler.firstPage("http://192.168.2.196:8088/testapi/index_data.json");
+        mRefreshHandler.firstPage("http://116.196.94.185:8080/testapi/index_data.json");
     }
 
     @Override
